@@ -6,9 +6,13 @@
   "scripts": {
     "test": "jest"
   },
+  "engines": {
+    "node": "iojs"
+  },
   "author": "Julian Krispel-Samsel",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^5.8.25",
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "gulp": "^3.9.0",
@@ -23,6 +27,24 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
+    "lodash": "^3.10.1",
     "react": "^0.13.3"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "globals": {
+      "__DEV__": true
+    },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules"
+    ],
+    "testFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   }
 }
