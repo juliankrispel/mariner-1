@@ -1,0 +1,28 @@
+{
+  "name": "your-code-will-explode",
+  "version": "1.0.0",
+  "description": "A talk about how your code will explode if you don't test!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Julian Krispel-Samsel",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "jest-cli": "^0.5.8",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
