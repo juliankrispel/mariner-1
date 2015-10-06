@@ -2,11 +2,11 @@ import pixi from 'pixi.js';
 import $ from 'jquery';
 
 var state = {
-	started: false
+	started: true
 };
 
-var height = window.innerHeight;
-var width = window.innerWidth;
+var height = window.innerHeight - 100;
+var width = window.innerWidth - 20;
 
 var renderer = pixi.autoDetectRenderer(width, height,{backgroundColor : 0x1099bb});
 var container = document.getElementById('container');
@@ -30,12 +30,12 @@ clouds.anchor.y = 0;
 
 // center the sprite's anchor point
 window.rocket = rocket;
-rocket.anchor.x = rocket.width;
+rocket.anchor.x = rocket.width/2;
 rocket.anchor.y = rocket.height;
 
 // move the sprite to the center of the screen
-rocket.position.y = height/2 - rocket.height;
-rocket.position.x = width/2 - rocket.width;
+rocket.position.y = height - rocket.height;
+rocket.position.x = width/2;
 
 background.addChild(clouds);
 foreground.addChild(rocket);
@@ -52,7 +52,11 @@ function animate(i) {
 	setTimeout(animate.bind(this, i), 20);
 
 	// just for fun, let's rotate mr rabbit a little
-	clouds.tilePosition.y += i;
+	if(rocket.position.y >= (height/2)){
+		rocket.position.y -= i;
+	}else{
+		clouds.tilePosition.y += i;
+	}
 
 	// render the container
 	renderer.render(stage);

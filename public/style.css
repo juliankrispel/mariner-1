@@ -9,7 +9,7 @@ html,body{
   font-size: 20px;
   height: 100%;
   width: 100%;
-  background: green;
+  background: black;
 }
 
 body{
@@ -47,4 +47,7 @@ button{
 
 canvas{
   max-width: 100%;
+  border: 20px solid #000;
+  border-radius: 50px;
+  overflow: hidden;
 }
