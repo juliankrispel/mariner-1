@@ -1,3 +1,13 @@
+import store from './store';
+
 export function launchRocket(){
-  console.log('Rocket Launched');
+  store.trigger('display', 'Rocket launched!');
+}
+
+export function steerRight(){
+  store.trigger('display', 'Rocket steered right');
+}
+
+export function steerLeft(){
+  store.trigger('display', 'Rocket steered left');
 }

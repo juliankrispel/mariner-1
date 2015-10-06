@@ -27,8 +27,11 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
+    "event-pubsub": "^1.0.3",
     "lodash": "^3.10.1",
-    "react": "^0.13.3"
+    "pixi.js": "^3.0.7",
+    "react": "^0.13.3",
+    "react-pixi": "^0.6.1"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",

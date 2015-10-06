@@ -1,14 +1,23 @@
 import React,{Component} from 'react';
-import actions from './actions';
+import {launchRocket, steerRight, steerLeft} from './actions';
 
-export default class RocketButton{
-  clickButton(){
-    actions.launchRocket();
+export default class RocketButton extends Component{
+  constructor(props){
+    super(props);
   }
 
   render(){
-    return <button
-        onClick={this.clickButton}
-        className="rocket-button">Launch Rocket</button>
+    console.log(launchRocket)
+    return <div>
+      <button
+        onClick={launchRocket}
+        className="rocket-button">Launch</button>
+      <button
+        onClick={steerRight}
+        className="rocket-button">Right</button>
+      <button
+        onClick={steerLeft}
+        className="rocket-button">Left</button>
+    </div>;
   }
 }
