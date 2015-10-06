@@ -1,8 +1,44 @@
 import pixi from 'pixi.js';
 import $ from 'jquery';
+window.$ = $;
+
+$('#launch').on('mousedown', function(){
+	state.started = true;
+});
+
+$('#right').on('mousedown', function(){
+	state.direction = 'right';
+});
+
+$('#left').on('mousedown', function(){
+	state.direction = 'left';
+});
+
+$('#right, #left').on('mouseleave mouseup', function(){
+	console.log('boing');
+	state.direction = '';
+});
+
+$(document.body).on('keydown', function(e){
+	if(e.keyCode === 39){
+		state.direction = 'right';
+	}else if(e.keyCode === 37){
+		state.direction = 'left';
+	}
+});
+
+$(document.body).on('keyup', function(e){
+	state.direction = '';
+});
+
+$('#left').on('mousedown', function(){
+	state.left = true;
+});
 
 var state = {
-	started: true
+	started: false,
+	left: false,
+	right: false
 };
 
 var height = window.innerHeight - 100;
@@ -23,18 +59,19 @@ var texture = pixi.Texture.fromImage('rocket.png');
 
 // create a new Sprite using the texture
 var rocket = new pixi.Sprite(texture);
-var clouds = new pixi.TilingSprite(cloudsTexture, width, height);
+var clouds = new pixi.TilingSprite(cloudsTexture, width*2, height*2);
 
 clouds.anchor.x = 0;
 clouds.anchor.y = 0;
+clouds.position.x = -width/2
+clouds.position.y = -height/2
 
 // center the sprite's anchor point
-window.rocket = rocket;
 rocket.anchor.x = rocket.width/2;
 rocket.anchor.y = rocket.height;
 
 // move the sprite to the center of the screen
-rocket.position.y = height - rocket.height;
+rocket.position.y = height - (rocket.height - 1);
 rocket.position.x = width/2;
 
 background.addChild(clouds);
@@ -43,10 +80,11 @@ stage.addChild(background);
 stage.addChild(foreground);
 
 // start animating
-animate(0.05);
+animate();
 
 function animate(i) {
-	if(i <= 30 && state.started === true){
+	i = i || 0;
+	if(i <= 15 && state.started === true){
 		i = i + 0.05;
 	}
 	setTimeout(animate.bind(this, i), 20);
@@ -57,6 +95,13 @@ function animate(i) {
 	}else{
 		clouds.tilePosition.y += i;
 	}
+
+	if(state.direction === 'right'){
+		clouds.tilePosition.x -= 8;
+	}else if(state.direction === 'left'){
+		clouds.tilePosition.x += 8;
+	}
+
 
 	// render the container
 	renderer.render(stage);
