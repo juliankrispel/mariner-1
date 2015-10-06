@@ -36,6 +36,7 @@ var createBundle = function(srcFile, destFile, destDir, isSpec, hasWatcher) {
   bundler.on('log', gutil.log); // output build logs to terminal
   bundler.on('log', function(string){
     if(string.indexOf('bytes written') > -1){
+      console.log('bytes writte');
       livereload.changed('');
     }
   });
@@ -79,10 +80,11 @@ gulp.task('watchJest', function(){
 });
 
 gulp.task('connect', function() {
+  livereload.listen();
   connect.server({
     root: 'public',
     livereload: true
   });
 });
 
-gulp.task('default', ['buildJs', 'watchJs', 'watchJest', 'connect'])
+gulp.task('default', ['buildJs', 'watchJs', 'connect'])

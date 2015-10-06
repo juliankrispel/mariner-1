@@ -2,4 +2,6 @@ node_modules
 public/*
 !public/index.html
 !public/style.css
+!public/*.png
+!public/*.jpg
 .DS_Store

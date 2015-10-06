@@ -12,6 +12,10 @@ html,body{
   background: green;
 }
 
+body{
+  overflow: hidden;
+}
+
 button{
   cursor: pointer;
 }

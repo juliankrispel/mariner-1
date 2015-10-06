@@ -22,12 +22,14 @@
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.5",
     "jest-cli": "^0.5.8",
+    "node-static": "^0.7.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
   },
   "dependencies": {
     "event-pubsub": "^1.0.3",
+    "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "pixi.js": "^3.0.7",
     "react": "^0.13.3",
