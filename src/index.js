@@ -15,7 +15,6 @@ $('#left').on('mousedown', function(){
 });
 
 $('#right, #left').on('mouseleave mouseup', function(){
-	console.log('boing');
 	state.direction = '';
 });
 
@@ -84,13 +83,13 @@ animate();
 
 function animate(i) {
 	i = i || 0;
-	if(i <= 15 && state.started === true){
-		i = i + 0.05;
+	if(i <= 10 && state.started === true){
+		i = i + 0.03;
 	}
 	setTimeout(animate.bind(this, i), 20);
 
 	// just for fun, let's rotate mr rabbit a little
-	if(rocket.position.y >= (height/2)){
+	if(rocket.position.y >= (height*0.8)){
 		rocket.position.y -= i;
 	}else{
 		clouds.tilePosition.y += i;
