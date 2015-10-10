@@ -1,5 +1,6 @@
 node_modules
 public/*
+tmp
 !public/index.html
 !public/style.css
 !public/*.png

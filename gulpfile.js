@@ -1,8 +1,10 @@
 var gulp = require('gulp');
 var watchify = require('watchify');
 var spawn = require('child_process').spawn;
+var mocha = require('gulp-mocha');
 var watch = require('gulp-watch');
 var browserify = require('browserify');
+var jasmine = require('gulp-jasmine-phantom');
 var connect = require('gulp-connect');
 var path = require('path');
 var gutil = require('gulp-util');
@@ -61,22 +63,6 @@ gulp.task('watchJs', function(){
 
 gulp.task('buildJs', function(){
   return createBundle('./src/index.js', 'app.js', './public', false, false);
-});
-
-gulp.task('runJestSpecs', function(cb){
-  var child = spawn('npm', ['test'], {stdio: 'inherit'});
-  child.on('exit', cb);
-});
-
-gulp.task('watchJest', function(){
-  var child = null;
-  return watch('**/__tests__/' + scriptGlob, function(file){
-    if(child !== null){
-      child.kill('SIGINT');
-      child = null;
-    }
-    child = spawn('jest', [file.path], {stdio: 'inherit'});
-  });
 });
 
 gulp.task('connect', function() {
