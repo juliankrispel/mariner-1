@@ -1,6 +1,5 @@
 import Event from 'event-pubsub';
 export const store = new Event;
-var _hasLaunched = false;
 export default {
   steerLeft(){
     store.trigger('steerLeft');
@@ -16,10 +15,5 @@ export default {
 
   launchRocket(){
     store.trigger('launchRocket');
-    _hasLaunched = true;
-  },
-
-  hasLaunched(){
-    return _hasLaunched;
   }
 }
