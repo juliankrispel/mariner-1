@@ -1,4 +1,4 @@
-import expect, {spyOn, isSpy, createSpy} from 'expect';
+import expect, {restoreSpies, spyOn, isSpy, createSpy} from 'expect';
 import {jsdom} from 'jsdom';
 var spies = [];
 
@@ -7,9 +7,7 @@ var spies = [];
 global.expect = expect;
 global.isSpy = isSpy;
 global.createSpy = createSpy;
-global.spyOn = function(){
-  var spy = spyOn.apply(spyOn, arguments);
-  return spy;
-};
+global.restoreSpies = restoreSpies;;
+global.spyOn = spyOn;
 global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
