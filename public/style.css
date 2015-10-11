@@ -18,18 +18,22 @@ body{
 
 button{
   cursor: pointer;
+	margin: 0 .9em;
   border: 1px solid #fff;
   background: transparent;
   color: #fff;
-  font-size: 3em;
+  font-size: 1.1em;
   line-height: 0.7em;
   display: inline-block;
   vertical-align: middle;
   padding: 0 0.25em;
   border-radius: 10px;
+  padding:  0.5em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.left, .right{
+.float-right{
   margin-left: 20px;
   float: right;
 }
@@ -37,13 +41,6 @@ button{
 .rocket-interface{
   clear: both;
   padding: 0 20px;
-}
-
-.launch-button{
-  padding:  0.5em;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 #root{
