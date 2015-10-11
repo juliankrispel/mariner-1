@@ -1,4 +1,5 @@
 import pixi from 'pixi.js';
+import {store} from './rocket-actions';
 
 var state = {
   started: false,
@@ -44,9 +45,7 @@ stage.addChild(background);
 stage.addChild(foreground);
 
 // start animating
-animate();
-
-function animate(i) {
+export function animate(i) {
   i = i || 0;
   if(i <= 10 && state.started === true){
     i = i + 0.03;
@@ -72,20 +71,18 @@ function animate(i) {
   renderer.render(stage);
 }
 
-var steerLeft = function(){
+store.on('steerLeft', function(){
   state.direction = 'left';
-}
+});
 
-var stopSteering = function(){
+store.on('stopSteering', function(){
   state.direction = '';
-}
+});
 
-var steerRight = function(){
+store.on('steerRight', function(){
   state.direction = 'right';
-}
+});
 
-var launchRocket = function(){
+store.on('launchRocket', function(){
   state.started = true;
-}
-
-export {steerLeft, steerRight, stopSteering, launchRocket};
+});

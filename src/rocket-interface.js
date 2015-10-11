@@ -6,7 +6,7 @@ import {
   launchRocket  
 } from './rocket';
 
-function renderRocketInterface(container){
+export function renderRocketInterface(container){
   var template = `
     <button class="launch-button">Launch Rocket</button>
   `;
@@ -15,5 +15,3 @@ function renderRocketInterface(container){
     launchRocket();
   });
 }
-
-renderRocketInterface('#interface');

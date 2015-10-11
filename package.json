@@ -4,8 +4,8 @@
   "description": "A talk about how your code will explode if you don't test!!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "watchTest": "mocha -w"
+    "test": "mocha --compilers js:babel/register",
+    "watchTest": "mocha --compilers js:babel/register -w"
   },
   "engines": {
     "node": "iojs"
