@@ -4,8 +4,8 @@
   "description": "A talk about how your code will explode if you don't test!!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register",
-    "watchTest": "mocha --compilers js:babel/register -w"
+    "test": "mocha --compilers js:babel/register --require test/init.js",
+    "watchTest": "mocha --compilers js:babel/register -w --require test/init.js"
   },
   "engines": {
     "node": "iojs"
@@ -17,6 +17,7 @@
     "babel-core": "^5.8.25",
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
+    "expect": "^1.12.1",
     "expect.js": "^0.3.1",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.2.0",

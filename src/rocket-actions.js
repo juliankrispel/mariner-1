@@ -1,24 +1,25 @@
 import Event from 'event-pubsub';
 export const store = new Event;
 var _hasLaunched = false;
+export default {
+	steerLeft(){
+		store.trigger('steerLeft');
+	},
 
-export function steerLeft(){
-	store.trigger('steerLeft');
-}
+	steerRight(){
+		store.trigger('steerRight');
+	},
 
-export function steerRight(){
-	store.trigger('steerRight');
-}
+	stopSteering(){
+		store.trigger('stopSteering');
+	},
 
-export function stopSteering(){
-	store.trigger('stopSteering');
-}
+	launchRocket(){
+		store.trigger('launchRocket');
+		_hasLaunched = true;
+	},
 
-export function launchRocket(){
-	store.trigger('launchRocket');
-	_hasLaunched = true;
-}
-
-export function hasLaunched(){
-	return _hasLaunched;
+	hasLaunched(){
+		return _hasLaunched;
+	}
 }

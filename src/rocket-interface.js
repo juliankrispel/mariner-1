@@ -1,10 +1,5 @@
 import $ from 'jquery';
-import { 
-  steerLeft, 
-  steerRight, 
-  stopSteering, 
-  launchRocket  
-} from './rocket-actions';
+import actions from './rocket-actions';
 
 export function renderRocketInterface(container){
 
@@ -16,6 +11,6 @@ export function renderRocketInterface(container){
   var el = $(container).append($(template));
 
   $('.launch-button', el).click(function(){
-    launchRocket();
+		actions.launchRocket();
   });
 }
