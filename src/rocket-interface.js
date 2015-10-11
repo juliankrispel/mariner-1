@@ -40,7 +40,7 @@ export function renderLeftButton(){
   });
 
   $(el).on('mousedown', function(){
-    if(state.hasLaunched()){
+    if(state.hasLaunched === true){
       actions.steerLeft();
     }
   });
