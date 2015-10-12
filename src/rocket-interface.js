@@ -1,12 +1,6 @@
 import $ from 'jquery';
 import actions from './rocket-actions';
 
-var state = {
-  hasLaunched: false
-}
-
-export {state};
-
 export function renderLaunchButton(){
   var template = '<button class="launch-button">Launch Rocket</button>';
   var el = $(template);
@@ -16,16 +10,9 @@ export function renderLaunchButton(){
 export function renderRightButton(){
   var template = '<button class="steer-right float-right">></button>';
   var el = $(template);
-  state.hasLaunched = false;
 
-  $(el).on('mouseup mouseleave', function(){
-    actions.stopSteering();
-  });
-
-  $(el).on('mousedown', function(){
-    if(state.hasLaunched === true){
-      actions.steerRight();
-    }
+  $(el).click(function(){
+    actions.steerRight();
   });
 
   return el;
@@ -35,14 +22,8 @@ export function renderLeftButton(){
   var template = '<button class="steer-left float-right"><</button>';
   var el = $(template);
 
-  $(el).on('mouseup mouseleave', function(){
-    actions.stopSteering();
-  });
-
-  $(el).on('mousedown', function(){
-    if(state.hasLaunched === true){
-      actions.steerLeft();
-    }
+  $(el).click(function(){
+    actions.steerLeft();
   });
 
   return el;
@@ -59,7 +40,6 @@ export function renderRocketInterface(){
   el.append(renderLeftButton());
 
   $('.launch-button', el).click(function(){
-    state.hasLaunched = true;
     actions.launchRocket();
   });
 

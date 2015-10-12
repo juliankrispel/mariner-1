@@ -9,10 +9,6 @@ export default {
     store.trigger('steerRight');
   },
 
-  stopSteering(){
-    store.trigger('stopSteering');
-  },
-
   launchRocket(){
     store.trigger('launchRocket');
   }
