@@ -5,6 +5,7 @@ export function renderLaunchButton(){
   var template = '<button class="launch-rocket">Launch</button>';
   var el = $(template);
   $(el).click(function(){
+    actions.launchRocket();
   });
   return el;
 }
