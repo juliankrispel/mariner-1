@@ -1,5 +1,5 @@
 import pixi from 'pixi.js';
-import {store} from './rocket-actions';
+import {store} from './rocket-control';
 
 var state = {
   started: false,
@@ -89,10 +89,6 @@ export function animate(i) {
 
 store.on('steerLeft', function(){
   state.direction = 'left';
-});
-
-store.on('stopSteering', function(){
-  state.direction = '';
 });
 
 store.on('steerRight', function(){
