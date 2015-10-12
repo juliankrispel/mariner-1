@@ -44,6 +44,8 @@ foreground.addChild(rocket);
 stage.addChild(background);
 stage.addChild(foreground);
 
+var directionVector = 0
+
 // start animating
 export function animate(i) {
   i = i || 0;
@@ -53,7 +55,6 @@ export function animate(i) {
   setTimeout(animate.bind(this, i), 20);
   clouds.tilePosition.x -= 0.1;
 
-  // just for fun, let's rotate mr rabbit a little
   if(rocket.position.y >= (height*0.8)){
     rocket.position.y -= i;
   }else{
@@ -61,11 +62,20 @@ export function animate(i) {
   }
 
   if(state.direction === 'right'){
-    clouds.tilePosition.x -= 8;
+    directionVector -= 150;
+    state.direction = '';
   }else if(state.direction === 'left'){
-    clouds.tilePosition.x += 8;
+    directionVector += 150;
+    state.direction = '';
   }
 
+  let vectorMovement = directionVector / 30
+  if(Math.abs(vectorMovement) < 3){
+    vectorMovement = 0;
+  }
+  directionVector-=vectorMovement
+
+  clouds.tilePosition.x += vectorMovement;
 
   // render the container
   renderer.render(stage);
