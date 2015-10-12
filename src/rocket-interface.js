@@ -28,6 +28,7 @@ export function renderRocketInterface(){
   });
 
   $('.steer-left', el).click(function(){
+    actions.steerLeft();
   });
 
   return el;
