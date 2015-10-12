@@ -1,27 +1,33 @@
 import $ from 'jquery';
 import rocketControl from './rocket-control';
 
+export function renderLaunchRocketButton(){
+  var template = '<button class="launch-rocket">Launch</button>';
+  var el = $(template);
+
+  $(el).click(function(){
+  });
+
+  return el;
+}
+
 export function renderRocketInterface(){
   // The template is just a string
   var template = `
   <div class="rocket-interface">
-  <button class="launch-button">Launch</button>
   <button class="steer-right float-right">></button>
   <button class="steer-left float-right"><</button>
   </div>
   `;
 
   var el = $(template);
-
-  $('.launch-button', el).click(function(){
-    rocketControl.launchRocket();
-  });
+  el.prepend(renderLaunchRocketButton())
 
   $('.steer-right', el).click(function(){
-    rocketControl.steerLeft();
+    rocketControl.steerRight();
   });
 
-  $('a.steer-left', el).click(function(){
+  $('.steer-left', el).click(function(){
     rocketControl.steerLeft();
   });
 
