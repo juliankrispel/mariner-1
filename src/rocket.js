@@ -44,7 +44,8 @@ foreground.addChild(rocket);
 stage.addChild(background);
 stage.addChild(foreground);
 
-var directionVector = 0
+var directionVector = 0;
+var rotationVector = 0;
 
 // start animating
 export function animate(i) {
@@ -70,12 +71,17 @@ export function animate(i) {
   }
 
   let vectorMovement = directionVector / 30
-  if(Math.abs(vectorMovement) < 3){
+  if(Math.abs(vectorMovement) < .4){
     vectorMovement = 0;
   }
-  directionVector-=vectorMovement
+
+  directionVector-=vectorMovement;
 
   clouds.tilePosition.x += vectorMovement;
+
+  let newRotationVector =- vectorMovement/50;
+  rotationVector =- newRotationVector;
+  rocket.rotation =- rotationVector;
 
   // render the container
   renderer.render(stage);
