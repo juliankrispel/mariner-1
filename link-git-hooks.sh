@@ -1,2 +1,2 @@
 cd .git/hooks
-ln -nsf ../../pre-push.sh
+ln -nsf ../../pre-push
