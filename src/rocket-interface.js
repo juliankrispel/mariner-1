@@ -24,7 +24,7 @@ function renderRightButton() {
 function renderLeftButton() {
   var template = '<button class="steer-left float-right"><</button>';
   var el = $(template);
-  $('.steer-left', el).click(function(){
+  $(el).click(function(){
     rocketControl.steerLeft();
   });
   return el;
