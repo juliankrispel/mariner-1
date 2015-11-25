@@ -1,33 +1,27 @@
 import $ from 'jquery';
-import actions from '../src/rocket-actions';
+import rocketControl from '../src/rocket-control';
 import {renderRocketInterface} from '../src/rocket-interface';
 
-describe('Rocket Interface', function(){
-  beforeEach(function(){
+describe('rocketInterface', ()=> {
+  beforeEach(()=> {
     $('body').append(renderRocketInterface());
   });
 
-  it('should render a launch button', function(){
-    expect($('button.launch-button').length).toBe(1);
-    expect($('button.steer-right').length).toBe(1);
-    expect($('button.steer-left').length).toBe(1);
+  it('launches the rocket when the launch button is pressed', ()=> {
+    spyOn(rocketControl, 'launchRocket');
+    $('.launch-rocket').click();
+    expect(rocketControl.launchRocket).toHaveBeenCalled();
   });
 
-  it('should launch a rocket when the launch button is clicked', function(){
-    let spy = spyOn(actions, 'launchRocket');
-    $('.launch-button').click();
-    expect(actions.launchRocket).toHaveBeenCalled();
-  });
-
-  it('should steer right if the right button is pressed', function(){
-    let spy = spyOn(actions, 'steerRight');
+  it('steers right when the right button is pressed', ()=> {
+    spyOn(rocketControl, 'steerRight');
     $('.steer-right').click();
-    expect(spy).toHaveBeenCalled()
+    expect(rocketControl.steerRight).toHaveBeenCalled();
   });
 
-  it('should steer right if the right button is pressed', function(){
-    let spy = spyOn(actions, 'steerRight');
-    $('.steer-right').click();
-    expect(spy).toHaveBeenCalled()
+  it('steers left when the left button is pressed', ()=> {
+    spyOn(rocketControl, 'steerLeft');
+    $('.steer-left').click();
+    expect(rocketControl.steerLeft).toHaveBeenCalled();
   });
 });
