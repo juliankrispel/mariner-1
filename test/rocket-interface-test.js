@@ -5,5 +5,3 @@ import {renderRocketInterface} from '../src/rocket-interface';
 describe('rocket interface', () => {
   beforeEach(()=> $('body').append(renderRocketInterface()));
 });
-
-
