@@ -1,5 +1,5 @@
 import pixi from 'pixi.js';
-import {store} from './rocket-actions';
+import {store} from './rocket-control';
 
 var state = {
   started: false,

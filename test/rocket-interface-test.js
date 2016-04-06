@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import actions from '../src/rocket-actions';
+import rocketControl from '../src/rocket-control';
 import {renderRocketInterface} from '../src/rocket-interface';
 
 describe('rocket interface', () => {
