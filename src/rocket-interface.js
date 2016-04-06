@@ -1,29 +1,62 @@
 import $ from 'jquery';
 import rocketControl from './rocket-control';
 
-export function renderRocketInterface(){
+export function renderLaunchButton(){
   // The template is just a string
   var template = `
-  <div class="rocket-interface">
   <button class="launch-rocket">Launch</button>
-  <button class="steer-right float-right">></button>
-  <button class="steer-left float-right"><</button>
-  </div>
   `;
 
   var el = $(template);
 
-  $('.launch-rocket', el).click(function(){
+  $(el).click(function(){
     rocketControl.launchRocket();
   });
 
-  $('.steer-righht', el).click(function(){
-    rocketControl.steerRight;
-  });
+  return el;
+}
 
-  $('.steer-left', el).click(function(){
+
+export function renderRightButton(){
+  // The template is just a string
+  var template = `
+  <button class="steer-right float-right">></button>
+  `;
+
+  var el = $(template);
+
+  $(el).click(function(){
     rocketControl.steerRight();
   });
+
+  return el;
+}
+
+export function renderLeftButton(){
+  var template = `
+  <button class="steer-left float-right"><</button>
+  `;
+
+  var el = $(template);
+
+  $('.steer-left', el).click(function(){
+    rocketControl.steerLeft();
+  });
+
+  return el;
+}
+
+export function renderRocketInterface(){
+  // The template is just a string
+  var template = `
+  <div class="rocket-interface">
+  </div>
+  `;
+
+  var el = $(template);
+  el.append(renderLaunchButton());
+  el.append(renderLeftButton());
+  el.append(renderRightButton());
 
   return el;
 }
