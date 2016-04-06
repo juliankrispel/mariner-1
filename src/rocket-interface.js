@@ -39,7 +39,7 @@ export function renderLeftButton(){
 
   var el = $(template);
 
-  $('.steer-left', el).click(function(){
+  $(el).click(function(){
     rocketControl.steerLeft();
   });
 
