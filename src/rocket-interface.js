@@ -17,12 +17,12 @@ export function renderRocketInterface(){
     rocketControl.launchRocket();
   });
 
-  $('.steer-righht', el).click(function(){
-    rocketControl.steerRight;
+  $('.steer-right', el).click(function(){
+    rocketControl.steerRight();
   });
 
   $('.steer-left', el).click(function(){
-    rocketControl.steerRight();
+    rocketControl.steerLeft();
   });
 
   return el;
